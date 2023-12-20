@@ -12,9 +12,15 @@ export function Carousel() {
     <div className="flex flex-col gap-2">
       <h1 className="text-xl font-semibold">Principais</h1>
 
-      <ReactCarousel infiniteLoop autoPlay showStatus={false}>
+      <ReactCarousel
+        infiniteLoop
+        autoPlay
+        showThumbs={false}
+        stopOnHover
+        showStatus={false}
+      >
         {carousel?.map((movie) => (
-          <MovieCard {...movie} />
+          <MovieCard key={movie.id} {...movie} />
         ))}
       </ReactCarousel>
     </div>
@@ -23,13 +29,21 @@ export function Carousel() {
 
 function MovieCard(movie: IMovie) {
   return (
-    <div key={movie.id}>
+    <div className="relative">
+      <CardHover {...movie} />
+
       <img
         src={movie?.["poster_path"]}
         className="w-[355px] h-[429px] rounded-lg"
       />
+    </div>
+  )
+}
 
-      <p className="legend">{movie.title}</p>
+function CardHover(movie: IMovie) {
+  return (
+    <div className="w-full h-full inset-0 absolute z-50">
+      <h1>{movie.title}</h1>
     </div>
   )
 }

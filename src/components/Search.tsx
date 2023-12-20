@@ -14,14 +14,16 @@ export function Search() {
   )
 
   return (
-    <input
-      className="bg-[#7676803D] text-[#767680] text-lg p-2 rounded-lg"
-      type="text"
-      id="search"
-      name="Procurar"
-      value={movieSearch}
-      placeholder="Pesquise o nome do filme, atores ..."
-      onChange={(event) => handleChangeSearch(event.target.value)}
-    />
+    <div className="sticky top-4 z-50 w-full">
+      <input
+        className="bg-[#7676803D] text-[#767680] text-lg p-2 rounded-lg"
+        type="text"
+        id="search"
+        name="Procurar"
+        value={movieSearch}
+        placeholder="Pesquise o nome do filme, atores ..."
+        onChange={(event) => handleChangeSearch(event.target.value)}
+      />
+    </div>
   )
 }

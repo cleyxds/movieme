@@ -1,4 +1,5 @@
 import { Carousel } from "./components/Carousel"
+import { CategoriesList } from "./components/CategoriesList"
 import { Search } from "./components/Search"
 
 export function App() {
@@ -9,6 +10,8 @@ export function App() {
       <Search />
 
       <Carousel />
+
+      <CategoriesList />
     </div>
   )
 }
