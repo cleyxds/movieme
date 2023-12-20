@@ -8,6 +8,7 @@ export type IMovie = {
   adult: boolean
   title: string
   original_title: string
+  poster_path: string
 }
 
 export type IMoviesAtom = {

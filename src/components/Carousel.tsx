@@ -1,20 +1,35 @@
 import { useRecoilValue } from "recoil"
 import { carouselMovieListSelector } from "../atoms/Movies/selectors/carouselMovieListSelector"
 
+import { Carousel as ReactCarousel } from "react-responsive-carousel"
+
+import { IMovie } from "../atoms/Movies"
+
 export function Carousel() {
   const carousel = useRecoilValue(carouselMovieListSelector)
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold underline">Principais</h1>
+    <div className="flex flex-col gap-2">
+      <h1 className="text-xl font-semibold">Principais</h1>
 
-      <div className="flex items-center gap-4 overflow-x-scroll">
+      <ReactCarousel infiniteLoop autoPlay showStatus={false}>
         {carousel?.map((movie) => (
-          <div key={movie.id} className="">
-            <p className="text-2xl font-medium">{movie?.["original_title"]}</p>
-          </div>
+          <MovieCard {...movie} />
         ))}
-      </div>
+      </ReactCarousel>
+    </div>
+  )
+}
+
+function MovieCard(movie: IMovie) {
+  return (
+    <div key={movie.id}>
+      <img
+        src={movie?.["poster_path"]}
+        className="w-[355px] h-[429px] rounded-lg"
+      />
+
+      <p className="legend">{movie.title}</p>
     </div>
   )
 }
