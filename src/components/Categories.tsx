@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil"
 import { categorizedMoviesSelector } from "../atoms/Movies/selectors/categorizedMoviesSelector"
 
-import { IMovie } from "../atoms/Movies"
+import { MovieCard } from "./MovieCard"
 
 import { capitalize } from "../utils/capitalize"
 
@@ -14,7 +14,7 @@ export function CategorizedCard({ category }: CategorizedProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex justify-between">
+      <div className="flex justify-between px-4">
         <strong className="text-xl font-semibold ">
           {capitalize(category)}
         </strong>
@@ -24,24 +24,11 @@ export function CategorizedCard({ category }: CategorizedProps) {
         </a>
       </div>
 
-      <div className="flex items-center gap-4 overflow-x-hidden">
+      <div className="flex items-center px-4 gap-4 overflow-x-scroll">
         {categorizedMovies?.map((movie) => (
           <MovieCard key={movie.id} {...movie} />
         ))}
       </div>
     </div>
-  )
-}
-
-function MovieCard(movie: IMovie) {
-  const movieCardAlt = `${movie?.title} poster`
-  const movieCardUrl = movie?.["poster_path"]
-
-  return (
-    <img
-      className="w-[208px] h-[275px] rounded-lg"
-      src={movieCardUrl}
-      alt={movieCardAlt}
-    />
   )
 }

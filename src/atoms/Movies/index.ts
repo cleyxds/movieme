@@ -9,6 +9,7 @@ export type IMovie = {
   title: string
   original_title: string
   poster_path: string
+  genre_ids: number[] | string[]
 }
 
 export type IMoviesAtom = {

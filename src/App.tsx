@@ -1,17 +1,19 @@
 import { Carousel } from "./components/Carousel"
 import { CategoriesList } from "./components/CategoriesList"
-import { Search } from "./components/Search"
+import { FilterList } from "./components/FilterList"
 
 export function App() {
   return (
-    <div className="flex flex-col gap-6 px-4 py-8">
-      <h1 className="text-3xl font-bold">Movie.me</h1>
+    <main className="flex flex-col gap-6 py-8 min-h-screen">
+      <FilterList />
 
-      <Search />
+      <div className="px-4 gap-6 flex flex-col">
+        <h1 className="text-3xl font-bold">Movie.me</h1>
 
-      <Carousel />
+        <Carousel />
+      </div>
 
       <CategoriesList />
-    </div>
+    </main>
   )
 }

@@ -14,9 +14,9 @@ export function Search() {
   )
 
   return (
-    <div className="sticky top-4 z-50 w-full">
+    <div className="sticky top-4">
       <input
-        className="bg-[#7676803D] text-[#767680] text-lg p-2 rounded-lg"
+        className="bg-[#7676803D] text-[#767680] text-lg p-2 rounded-lg w-full"
         type="text"
         id="search"
         name="Procurar"
